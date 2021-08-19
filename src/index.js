@@ -46,56 +46,27 @@ function decode(expr) {
         i +=10;
     }
 
-    let n=0;
-
-    while (n < array.length) { // заменить пробелы
-        if (array[n] === "**********") {
-            array[n] = " ";
-            array.push(array[n]);
-            n +=1;
-        } else {
-            array.push(array[n]);
-            n +=1;
-        }
-    }
-
-    let n=0;
-
-let array1 =[]; //массив без *****
-
-  while (n < array.length) { // заменить пробелы
-        if (array[n] === "**********") {
-            array[n] = " ";
-            array1.push(array[n]);
-            n +=1;
-        } else {
-            array1.push(array[n]);
-            n +=1;
-        }
-
-    }
-
 let a = /00/gi;
 let dot = /10/gi;
 let slash = /11/gi;
 
 //заменяем все на точки-тире
 
-	for (let i = 0; i < array1.length; i++) {
-  array1[i]= array1[i].replace(a,'')
+	for (let i = 0; i < array.length; i++) {
+  array[i]= array[i].replace(a,'')
 }
 
-for (let i = 0; i < array1.length; i++) {
-  array1[i]= array1[i].replace(dot,'.')
+for (let i = 0; i < array.length; i++) {
+  array[i]= array[i].replace(dot,'.')
 }
 
-for (let i = 0; i < array1.length; i++) {
-  array1[i]= array1[i].replace(slash,'-')
+for (let i = 0; i < array.length; i++) {
+  array[i]= array[i].replace(slash,'-')
 }
 
 let result =[];
-for (let i = 0; i < array1.length; i++) {
-    result.push(MORSE_TABLE[array1[i]])
+for (let i = 0; i < array.length; i++) {
+    result.push(MORSE_TABLE[array[i]])
 }
 let resultString = '';
 for (let i = 0; i < result.length; i++) {
